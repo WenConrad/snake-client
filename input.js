@@ -1,43 +1,10 @@
-const handleUserInput = function (key) {
+const { inputCommands } = require("./constants");
+
+const handleUserInput = (key) => {
   if (key === '\u0003') {
     process.exit();
-  }
-  if (key === 'w') {
-    connection.write("Move: up");
-  } else if (key === 'a') {
-    connection.write("Move: left");
-  } else if (key === 's') {
-    connection.write("Move: down");
-  } else if (key === 'd') {
-    connection.write("Move: right");
-  } else if (key === 'i') {
-    for (i = 0; i < 5; i++) {
-      setTimeout(() => {connection.write("Move: up")}, 50*i);
-    }
-  } else if (key === 'j') {
-    for (i = 0; i < 5; i++) {
-      setTimeout(() => {connection.write("Move: left")}, 50*i);
-    }
-  } else if (key === 'k') {
-    for (i = 0; i < 5; i++) {
-      setTimeout(() => {connection.write("Move: down")}, 50*i);
-    }
-  } else if (key === 'l') {
-    for (i = 0; i < 5; i++) {
-      setTimeout(() => {connection.write("Move: right")}, 50*i);
-    }
-  } else if (key === '1') {
-    connection.write("Say: Well Met!");
-  } else if (key === '2') {
-    connection.write("Say: I need healing!");
-  } else if (key === '3') {
-    connection.write("Say: xD");
-  } else if (key === '4') {
-    connection.write("Say: PKPKPKPK");
-  } else if (key === '5') {
-    connection.write("Say: 1v1 me bro");
-  } else if (key === '6') {
-    connection.write("Say: i am the fast");
+  } else {
+    inputCommands[key](connection);
   }
 };
 

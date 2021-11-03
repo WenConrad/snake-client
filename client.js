@@ -1,30 +1,27 @@
 const net = require("net");
+const { IP, PORT } = require("./constants");
 
-const connect = function () {
+const connect = () => {
   const conn = net.createConnection({
-    host: '165.227.47.243',
-    port: '50541',
+    host: IP,
+    port: PORT,
   });
-  // interpret incoming data as text
+  
   conn.setEncoding("utf8");
 
-  conn.on('connect',function(){
+  conn.on('connect',() => {
     console.log('Successfully connected to game server');
   });
   
   conn.on('connect', () => {
-    conn.write('Name: cww');
+    conn.write('Name: nek');
   });
   
-  conn.on('data', function(message){
+  conn.on('data', (message) => {
     console.log(message);
   });
   
-  // conn.on('connect', () => {
-  //   conn.write('Move: up')
-  // })
-
-  conn.on('end', function(){
+  conn.on('end', () => {
     console.log("Disconnected from game server");
   });
     
@@ -33,4 +30,4 @@ const connect = function () {
 
 module.exports = {
   connect
-}
+};

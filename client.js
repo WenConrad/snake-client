@@ -8,17 +8,17 @@ const connect = function () {
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
-  conn.on('connect',function(message){
-    console.log(message);
+  conn.on('connect',function(){
+    console.log('Successfully connected to game server');
   });
 
   conn.on('data', function(message){
     console.log(message);
   });
 
-  // process.stdin.on('data', function(message){
-  //   client.write(message);
-  // });
+  process.stdin.on('data', function(){
+    client.write("Name: sss");
+  });
 
   conn.on('end', function(message){
     console.log(message);

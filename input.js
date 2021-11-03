@@ -31,11 +31,13 @@ const handleUserInput = function (key) {
   } else if (key === '2') {
     connection.write("Say: I need healing!");
   } else if (key === '3') {
-    connection.write("Say: ?");
+    connection.write("Say: xD");
   } else if (key === '4') {
     connection.write("Say: PKPKPKPK");
   } else if (key === '5') {
     connection.write("Say: 1v1 me bro");
+  } else if (key === '6') {
+    connection.write("Say: i am the fast");
   }
 };
 

@@ -11,17 +11,21 @@ const connect = function () {
   conn.on('connect',function(){
     console.log('Successfully connected to game server');
   });
-
+  
+  conn.on('connect', () => {
+    conn.write('Name: nek');
+  });
+  
   conn.on('data', function(message){
     console.log(message);
   });
+  
+  // conn.on('connect', () => {
+  //   conn.write('Move: up')
+  // })
 
-  process.stdin.on('data', function(){
-    client.write("Name: sss");
-  });
-
-  conn.on('end', function(message){
-    console.log(message);
+  conn.on('end', function(){
+    console.log("Disconnected from game server");
   });
     
   return conn;
